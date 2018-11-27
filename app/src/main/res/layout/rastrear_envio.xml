@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RastrearEnvio">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:background="@color/colorPrimary"
+        app:title="@string/titulo_RastrearEnv"
+        app:titleTextColor="@color/coloresTitulos"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <EditText
+        android:id="@+id/txtNumGuia"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:hint="Ingresa número de guía"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_circle"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtNumGuia"
+        android:layout_marginTop="12dp"
+        android:text="Rastrear envio" />
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_circle"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtNumGuia"
+        android:layout_marginTop="100dp"
+        android:text="@string/boton_regresar" />
+
+
+
+
+</RelativeLayout>

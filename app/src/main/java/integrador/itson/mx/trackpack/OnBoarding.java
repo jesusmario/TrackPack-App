@@ -1,7 +1,9 @@
 package integrador.itson.mx.trackpack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -32,5 +34,13 @@ Button buttonob1;
         subtituloOnboard1.startAnimation(nothingtocome);
         tituloOnboard1.startAnimation(nothingtocome);
         buttonob1.startAnimation(btnanim);
+
+        buttonob1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent buttonobl = new Intent(OnBoarding.this, OnBoarding2.class);
+                startActivity(buttonobl);
+            }
+        });
     }
 }
