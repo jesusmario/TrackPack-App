@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".OnBoarding" />
-        <activity android:name=".OnBoarding2"></activity>
+        <activity android:name=".OnBoarding2" />
+        <activity android:name=".OnBoarding3" />
+        <activity android:name=".RastrearEnvio" />
+        <activity android:name=".MenuPrincipal"></activity>
     </application>
 
 </manifest>

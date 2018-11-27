@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Track Pack</string>
+    <string name="boton_regresar">Volver al menú principal</string>
+    <string name="titulo_RastrearEnv">Rastrea tu envio</string>
 </resources>
