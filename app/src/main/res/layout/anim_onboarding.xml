@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    android:orientation="vertical"
+    tools:context=".OnBoarding">
+
+    <ImageView
+        android:id="@+id/onboardImg1"
+        android:layout_width="242dp"
+        android:layout_height="236dp"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/onboard_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tituloOnboard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Hola mundo"
+        android:textColor="#FFFF"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onboardImg1" />
+
+    <TextView
+        android:id="@+id/subtituloOnboard1"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="411dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:lineSpacingExtra="6dp"
+        android:text="Lorem ipsum dolor sit amet consecteur tengo dolor"
+        android:textAlignment="center"
+        android:textColor="#FFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonob1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <Button
+        android:id="@+id/buttonob1"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bgbtn"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#56461F"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/subtituloOnboard1"
+        app:layout_constraintTop_toBottomOf="@+id/subtituloOnboard1" />
+
+</android.support.constraint.ConstraintLayout>

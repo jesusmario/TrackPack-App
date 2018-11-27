@@ -30,8 +30,8 @@ public class IntroLogo extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent sub = new Intent(IntroLogo.this,MenuPrincipal.class);
-                startActivity(sub);*/
+                Intent sub = new Intent(IntroLogo.this,OnBoarding.class);
+                startActivity(sub);
             }
         });
 
