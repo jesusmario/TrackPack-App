@@ -56,12 +56,12 @@ public class RastrearEnvio extends AppCompatActivity {
             String NAMESPACE = "http://www.itrackpack.com/";
             String METHOD_NAME = "ObtenerHistorialOrden";
             String SOAP_ACTION = "http://www.itrackpack.com/ObtenerHistorialOrden";
-            String URL = "https://www.itrackpack.com/WSTrackPack.asmx";
+            String URL = "https://www.itrackpack.com/WSTrackPack.asmx?WSDL";
 
             try{
                 // Peticion o llamada al servicio web
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-                request.addProperty("numRastreo", "2018000002");
+                request.addProperty("numRastreo", "2018000001");
                 SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 soapEnvelope.dotNet = true;
                 soapEnvelope.setOutputSoapObject(request);
@@ -70,7 +70,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 transport.call(SOAP_ACTION, soapEnvelope);
 
                 //Respuesta
-                Object _objeto = (Object) soapEnvelope.getResponse();
+                SoapObject _objeto = (SoapObject) soapEnvelope.getResponse();
 
             }catch(Exception e){
                 e.printStackTrace();
