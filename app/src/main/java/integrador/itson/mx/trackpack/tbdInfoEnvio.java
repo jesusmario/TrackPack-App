@@ -131,7 +131,19 @@ public class tbdInfoEnvio extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            //return PlaceholderFragment.newInstance(position + 1);
+
+            switch (position){
+                case 0:
+                    EnviosFragment enviosFragment = new EnviosFragment();
+                    return enviosFragment;
+
+                case 1:
+                    MapsFragment mapsFragment = new MapsFragment();
+                    return mapsFragment;
+            }
+
+        return null;
         }
 
         @Override
@@ -146,6 +158,7 @@ public class tbdInfoEnvio extends AppCompatActivity {
                     return "ENVIOS";
                 case 1:
                     return "UBICACION";
+
             }
             return null;
         }

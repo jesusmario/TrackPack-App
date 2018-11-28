@@ -23,5 +23,13 @@ public class RastrearEnvio extends AppCompatActivity {
                 startActivity(btnRastrear);
             }
         });
+
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent btnRegresar = new Intent (RastrearEnvio.this, MenuPrincipal.class);
+                startActivity(btnRegresar);
+            }
+        });
     }
 }
