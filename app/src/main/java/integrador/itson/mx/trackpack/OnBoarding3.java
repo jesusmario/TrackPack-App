@@ -1,12 +1,16 @@
 package integrador.itson.mx.trackpack;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.time.Instant;
 
 public class OnBoarding3 extends AppCompatActivity {
     Animation smltobig, nothingtocome, btnanim;
@@ -28,6 +32,12 @@ public class OnBoarding3 extends AppCompatActivity {
         tituloOnboard3 = (TextView) findViewById(R.id.tituloOnboard3);
         buttonob3 = (Button) findViewById(R.id.buttonob3);
 
+        buttonob3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OnBoarding3.this, MenuPrincipal.class));
+            }
+        });
 
     }
     }
