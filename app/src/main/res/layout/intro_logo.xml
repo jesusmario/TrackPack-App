@@ -25,12 +25,16 @@
         tools:layout_height="wrap_content"
         tools:layout_width="wrap_content" />
 
+
+
     <Button
         android:id="@+id/sub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/sub_btn"
+        android:background="@drawable/bgbtn"
+        android:text="@string/logo_animacionbtn"
+        android:textColor="@color/TextColorBotonOnBoarding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
