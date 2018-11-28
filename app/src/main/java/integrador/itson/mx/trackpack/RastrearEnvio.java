@@ -60,14 +60,9 @@ public class RastrearEnvio extends AppCompatActivity {
             try{
                 // Peticion o llamada al servicio web
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-
-                request.addProperty("Celsius", "14");
-
+                request.addProperty("numRastreo", "2018000002");
                 SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-
                 soapEnvelope.dotNet = true;
-                //Comentario
-
                 soapEnvelope.setOutputSoapObject(request);
 
                 HttpTransportSE transport = new HttpTransportSE(URL);
@@ -75,8 +70,6 @@ public class RastrearEnvio extends AppCompatActivity {
 
                 //Respuesta
                 Object _objeto = (Object) soapEnvelope.getResponse();
-
-                _mensajeRespuesta = String.valueOf("Celsius: 14c - > Fahrenheit: " + _objeto.toString() + "f");
 
             }catch(Exception e){
                 e.printStackTrace();
@@ -87,8 +80,6 @@ public class RastrearEnvio extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            Toast.makeText(getApplicationContext(), _mensajeRespuesta, Toast.LENGTH_LONG).show();
 
         }
     }
