@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/botDeli"
                     android:src="@drawable/deli"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
@@ -96,6 +97,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/botEstimar"
                     android:src="@drawable/estimar"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
