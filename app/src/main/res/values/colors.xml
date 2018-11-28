@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
     <color name="coloresTitulos">#FFFF</color>
+    <color name="colorNaranjaLogo">#FAAC30</color>
+    <color name="TextColorBotonOnBoarding">#FFFF</color>
 
 </resources>

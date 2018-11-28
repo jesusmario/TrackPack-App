@@ -8,6 +8,15 @@
     <string name="tab_text_2">Ubicacion</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tituloOnBoarding1">Bienvenido a TrackPack</string>
+    <string name="tituloOnBoarding2">Rastrea tu paquete.</string>
+    <string name="tituloOnBoarding3">Calcular precio</string>
+    <string name="btnEmpezar">Empezar</string>
+    <string name="btnSiguiente">Siguiente</string>
+    <string name="btnFinalizar">Finalizar</string>
+    <string name="descripcion_1">El mejor envío para tu paquete.</string>
+    <string name="descripcion_2">El mejor envío al alcance de tu manos.</string>
+    <string name="descripcion_3">Costea de manera sencilla tus envíos.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
