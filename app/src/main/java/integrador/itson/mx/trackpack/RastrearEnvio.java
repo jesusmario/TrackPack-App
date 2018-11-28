@@ -61,6 +61,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 
                 soapEnvelope.dotNet = true;
+                //Comentario
 
                 soapEnvelope.setOutputSoapObject(request);
 
