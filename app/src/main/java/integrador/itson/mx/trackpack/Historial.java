@@ -5,18 +5,18 @@ import android.text.method.DateTimeKeyListener;
 import java.util.Date;
 
 public class Historial {
-    Date fecha;
+    String fecha;
     String descripcion;
     String ciudad;
     String estado;
     String latitud;
     String longitud;
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(String peso) {
+    public void setFecha(String fecha) {
         this.fecha= fecha;
     }
 
@@ -26,6 +26,14 @@ public class Historial {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion= descripcion;
     }
 
     public String getEstado() {

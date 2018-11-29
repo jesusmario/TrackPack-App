@@ -13,6 +13,11 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 public class RastrearEnvio extends AppCompatActivity {
     Button btnRegresar, btnRastrear;
     EditText  txtnumeroRastreo;
@@ -31,8 +36,6 @@ public class RastrearEnvio extends AppCompatActivity {
             public void onClick(View v) {
                 servicioWeb _servicioWeb = new servicioWeb();
                 _servicioWeb.execute();
-                Intent btnRastrear = new Intent(RastrearEnvio.this, tbdInfoEnvio.class);
-                startActivity(btnRastrear);
             }
         });
 
@@ -70,7 +73,43 @@ public class RastrearEnvio extends AppCompatActivity {
                 transport.call(SOAP_ACTION, soapEnvelope);
 
                 //Respuesta
-                SoapObject _objeto = (SoapObject) soapEnvelope.getResponse();
+                SoapObject response = (SoapObject) soapEnvelope.bodyIn;
+                SoapObject body = (SoapObject) response.getProperty(0);
+
+                //Datos destinatario.
+                SoapObject destinatario = (SoapObject) body.getProperty("Destinatario");
+                Destinatario d = new Destinatario();
+                d.setNombre(destinatario.getProperty("Nombre").toString());
+                d.setColonia(destinatario.getProperty("Colonia").toString());
+                d.setAvenida(destinatario.getProperty("Avenida").toString());
+                d.setCalle(destinatario.getProperty("Calle").toString());
+
+                //Datos Historial.
+                List<Historial> listaHistorial = new ArrayList<>();
+                SoapObject ListaHistorial = (SoapObject) body.getProperty("Historiales");
+                int historia = ListaHistorial.getPropertyCount();
+                for(int i=0; i<historia; i++)
+                {
+                    SoapObject historial = (SoapObject) ListaHistorial.getProperty(i);
+                    Historial h = new Historial();
+                    h.setFecha(historial.getProperty("Fecha").toString().replace("T", " "));
+                    h.setDescripcion(historial.getProperty("Descripcion").toString());
+                    h.setCiudad(historial.getProperty("Ciudad").toString());
+                    h.setEstado(historial.getProperty("Estado").toString());
+                    h.setLatitud(historial.getProperty("Latitud").toString());
+                    h.setLongitud(historial.getProperty("Longitud").toString());
+                    listaHistorial.add(h);
+                }
+
+
+                SoapObject paquete = (SoapObject) body.getProperty("Paquete");
+                Paquete p = new Paquete();
+                p.setPeso(paquete.getProperty("Peso").toString());
+                p.setContenido(paquete.getProperty("Contenido").toString());
+                p.setDescripcion(paquete.getProperty("Descripcion").toString());
+                p.setTamanio(paquete.getProperty("Tamanio").toString());
+
+
 
             }catch(Exception e){
                 e.printStackTrace();
