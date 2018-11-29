@@ -1,6 +1,7 @@
 package integrador.itson.mx.trackpack;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ import java.time.Instant;
 
 public class OnBoarding3 extends AppCompatActivity {
     Animation smltobig, nothingtocome, btnanim;
-    ImageView onBoardImg3;
+    ImageView onBoardImg3, skipOnBoarding;
     TextView subtituloOnboard3, tituloOnboard3;
     Button buttonob3;
 
@@ -32,6 +33,17 @@ public class OnBoarding3 extends AppCompatActivity {
         tituloOnboard3 = (TextView) findViewById(R.id.tituloOnboard3);
         buttonob3 = (Button) findViewById(R.id.buttonob3);
 
+        skipOnBoarding = (ImageView) findViewById(R.id.skipOnBoarding);
+
+        skipOnBoarding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent skipOnBoarding = new Intent(OnBoarding3.this, MenuPrincipal.class);
+                startActivity(skipOnBoarding);
+            }
+        });
+
+
         buttonob3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,5 +53,4 @@ public class OnBoarding3 extends AppCompatActivity {
 
     }
     }
-
 

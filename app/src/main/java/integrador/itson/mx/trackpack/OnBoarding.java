@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class OnBoarding extends AppCompatActivity {
 Animation smltobig, nothingtocome, btnanim;
-ImageView onboardImg1;
+ImageView onboardImg1, skipOnBoarding;
 TextView subtituloOnboard1, tituloOnboard1;
 Button buttonob1;
 
@@ -29,11 +29,20 @@ Button buttonob1;
         subtituloOnboard1 = (TextView) findViewById(R.id.subtituloOnboard1);
        tituloOnboard1 = (TextView) findViewById(R.id.tituloOnboard1);
        buttonob1 = (Button) findViewById(R.id.buttonob1);
+       skipOnBoarding = (ImageView) findViewById(R.id.skipOnBoarding);
 
         onboardImg1.startAnimation(smltobig);
         subtituloOnboard1.startAnimation(nothingtocome);
         tituloOnboard1.startAnimation(nothingtocome);
         buttonob1.startAnimation(btnanim);
+
+        skipOnBoarding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent skipOnBoarding = new Intent(OnBoarding.this, MenuPrincipal.class);
+                startActivity(skipOnBoarding);
+            }
+        });
 
         buttonob1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,5 +51,10 @@ Button buttonob1;
                 startActivity(buttonobl);
             }
         });
+
+
+
+
+
     }
 }
