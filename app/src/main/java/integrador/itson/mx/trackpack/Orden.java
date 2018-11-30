@@ -41,9 +41,11 @@ public class Orden implements Serializable{
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
     }
-    public List<Historial> historiales() {
+
+    public List<Historial> getHistoriales() {
         return historiales;
     }
+
     public void setHistoriales(List<Historial> historiales) {
         this.historiales = historiales;
     }

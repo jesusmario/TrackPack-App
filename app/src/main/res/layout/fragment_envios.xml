@@ -46,10 +46,10 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textGrid"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="127dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="128dp"
+            android:text="nnnnnnnnnn"
             android:textAlignment="center"
-            android:text="Numero de guía"
             android:textColor="#EDEDED"
             android:textSize="15sp" />
 
@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textGrid"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="134dp"
-            android:layout_marginTop="127dp"
-            android:text="Hola"
+            android:layout_marginStart="149dp"
+            android:layout_marginTop="129dp"
+            android:text="YYYY-MM-dd"
             android:textColor="#EDEDED"
             android:textSize="15sp" />
 
