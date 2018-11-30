@@ -135,7 +135,11 @@ public class tbdInfoEnvio extends AppCompatActivity {
 
             switch (position){
                 case 0:
+                    Orden o = (Orden) (getIntent().getExtras().getSerializable("Orden"));
                     EnviosFragment enviosFragment = new EnviosFragment();
+                    Bundle b = new Bundle();
+                    b.putSerializable("o", o);
+                    enviosFragment.setArguments(b);
                     return enviosFragment;
 
                 case 1:

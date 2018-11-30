@@ -2,9 +2,10 @@ package integrador.itson.mx.trackpack;
 
 import android.text.method.DateTimeKeyListener;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Historial {
+public class Historial implements Serializable {
     String fecha;
     String descripcion;
     String ciudad;

@@ -1,11 +1,12 @@
 package integrador.itson.mx.trackpack;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Orden {
+public class Orden implements Serializable{
     String numeroOrden;
-    Date fecha;
+    String fecha;
     Destinatario destinatario;
     Paquete paquete;
     List<Historial> historiales;
@@ -18,11 +19,11 @@ public class Orden {
         this.numeroOrden = numeroOrden;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

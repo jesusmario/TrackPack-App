@@ -13,8 +13,7 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,12 +103,23 @@ public class RastrearEnvio extends AppCompatActivity {
 
                 SoapObject paquete = (SoapObject) body.getProperty("Paquete");
                 Paquete p = new Paquete();
-                p.setPeso(paquete.getProperty("Peso").toString());
-                p.setContenido(paquete.getProperty("Contenido").toString());
-                p.setDescripcion(paquete.getProperty("Descripcion").toString());
                 p.setTamanio(paquete.getProperty("Tamanio").toString());
 
+                Orden o = new Orden();
+                o.setFecha(body.getProperty("Fecha").toString());
+                o.setDestinatario(d);
+                o.setHistoriales(listaHistorial);
+                o.setPaquete(p);
+                o.setNumeroOrden(body.getProperty("NumeroRastreo").toString());
 
+
+                /*Bundle b = new Bundle();
+                b.putSerializable("o", o);
+                EnviosFragment e = new EnviosFragment();
+                e.setArguments(b);*/
+                Intent i = new Intent(RastrearEnvio.this, tbdInfoEnvio.class);
+                i.putExtra("Orden", (Serializable) o);
+                startActivity(i);
 
             }catch(Exception e){
                 e.printStackTrace();

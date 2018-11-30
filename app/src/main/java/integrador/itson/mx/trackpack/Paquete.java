@@ -1,6 +1,8 @@
 package integrador.itson.mx.trackpack;
 
-public class Paquete {
+import java.io.Serializable;
+
+public class Paquete implements Serializable {
     String peso;
     String tamanio;
     String contenido;

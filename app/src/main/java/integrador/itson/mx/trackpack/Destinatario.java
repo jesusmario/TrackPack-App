@@ -1,6 +1,8 @@
 package integrador.itson.mx.trackpack;
 
-public class Destinatario
+import java.io.Serializable;
+
+public class Destinatario implements Serializable
 {
     String nombre;
     String calle;
