@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class EnviosFragment extends Fragment {
+    TextView fecha, numeroRastreo;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -17,7 +19,7 @@ public class EnviosFragment extends Fragment {
         if(getArguments() != null)
         {
             Orden o = (Orden) getArguments().getSerializable("o");
-            Toast.makeText(getContext(), o.getFecha(), Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -25,7 +27,14 @@ public class EnviosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_envios, container, false);
+        Orden o = (Orden) getArguments().getSerializable("o");
+        View view=inflater.inflate(R.layout.fragment_envios,container,false);
+        fecha=view.findViewById(R.id.fechas);
+        numeroRastreo = view.findViewById(R.id.numRastreo);
+        fecha.setText(o.getFecha());
+        numeroRastreo.setText(o.getNumeroOrden());
+
+        return view;
     }
 
 

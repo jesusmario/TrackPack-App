@@ -106,7 +106,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 p.setTamanio(paquete.getProperty("Tamanio").toString());
 
                 Orden o = new Orden();
-                o.setFecha(body.getProperty("Fecha").toString());
+                o.setFecha(body.getProperty("Fecha").toString().replace("T", " "));
                 o.setDestinatario(d);
                 o.setHistoriales(listaHistorial);
                 o.setPaquete(p);

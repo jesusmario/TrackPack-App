@@ -4,18 +4,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:rowCount="2"
+    android:columnCount="1"
+    android:background="@drawable/fondodos"
     tools:context=".EnviosFragment">
 
+
+    <RelativeLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        >
+
+        <TextView
+            android:id="@+id/textGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Información de envío."
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textGrid"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="99dp"
+            android:text="Numero de guía"
+            android:textColor="#EDEDED"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/numRastreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textGrid"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="127dp"
+            android:textAlignment="center"
+            android:text="Numero de guía"
+            android:textColor="#EDEDED"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textGrid"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="166dp"
+            android:layout_marginTop="99dp"
+            android:text="Fecha"
+            android:textColor="#EDEDED"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fechas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textGrid"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="134dp"
+            android:layout_marginTop="127dp"
+            android:text="Hola"
+            android:textColor="#EDEDED"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
     <!-- TODO: Update blank fragment layout -->
     <ListView
         android:id="@+id/listEnvio"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="352dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
+        android:background="#fff"
         android:divider="#d1d1d1"
         android:dividerHeight="10dp"></ListView>
+
+
+
+
+
 
 
 
