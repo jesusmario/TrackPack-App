@@ -17,26 +17,43 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="211dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        tools:context=".MapsActivity" />
+
     <EditText
         android:id="@+id/txtLocationA"
         android:layout_width="300dp"
         android:layout_height="40dp"
-
         android:layout_alignParentEnd="true"
         android:layout_marginTop="240dp"
-        android:layout_marginEnd="25dp"
-        android:hint="Location A" />
-
+        android:layout_marginEnd="42dp"
+        android:hint="Desde" />
     <EditText
         android:id="@+id/txtLocationB"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="42dp"
+        android:hint="Hasta" />
+
+    <EditText
+        android:id="@+id/txtKilos"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_alignBottom="@+id/txtLocationA"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="-48dp"
-        android:hint="Location B" />
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="-101dp"
+        android:hint="Kilogramos a enviar" />
 
     <Button
         android:id="@+id/btnCalcular"
@@ -44,7 +61,7 @@
         android:layout_height="40dp"
         android:layout_below="@id/txtLocationA"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="114dp"
         android:background="@drawable/edit_circle"
         android:text="Calcular envio"
         android:textColor="@android:color/white" />
@@ -55,7 +72,7 @@
         android:layout_height="40dp"
         android:layout_below="@id/txtLocationA"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="166dp"
         android:background="@drawable/edit_circle"
         android:text="@string/boton_regresar"
         android:textColor="@android:color/white" />

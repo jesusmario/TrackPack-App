@@ -62,8 +62,10 @@ public class RastrearEnvio extends AppCompatActivity {
 
             try{
                 // Peticion o llamada al servicio web
+                String numero = txtnumeroRastreo.getText().toString();
+                System.out.println(numero);
                 SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-                request.addProperty("numRastreo", "2018000001");
+                request.addProperty("numRastreo", numero);
                 SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 soapEnvelope.dotNet = true;
                 soapEnvelope.setOutputSoapObject(request);

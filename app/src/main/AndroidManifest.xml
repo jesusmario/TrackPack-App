@@ -33,6 +33,7 @@
         <activity android:name=".OnBoarding3" />
         <activity android:name=".RastrearEnvio" />
         <activity android:name=".MenuPrincipal" />
+        <activity android:name=".CostoEnvio"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -52,7 +53,6 @@
             android:name=".tbdInfoEnvio"
             android:label="@string/title_activity_tbd_info_envio"
             android:theme="@style/AppTheme" />
-        <activity android:name=".CostoEnvio"></activity>
     </application>
 
 </manifest>

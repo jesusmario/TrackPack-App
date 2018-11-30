@@ -40,7 +40,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             ft.replace(R.id.map, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
-
         return v;
     }
 
