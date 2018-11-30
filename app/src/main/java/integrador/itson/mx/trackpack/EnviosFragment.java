@@ -59,8 +59,8 @@ public class EnviosFragment extends Fragment {
 
             String []arrayFecha = listaHistorial.get(i).getFecha().replace("T", " ").split(" ");
             String fechaHistorial = obtenerFecha(arrayFecha[0]);
-            String resultado = "Fecha: "+fechaHistorial+"\n Lugar: "+ listaHistorial.get(i).getCiudad()+", "+listaHistorial.get(i).getEstado()+
-                    "\n Descripción: "+listaHistorial.get(i).getDescripcion();
+            String resultado = "Fecha: "+fechaHistorial+"\nLugar: "+ listaHistorial.get(i).getCiudad()+", "+listaHistorial.get(i).getEstado()+
+                    "\nDescripción: "+listaHistorial.get(i).getDescripcion();
             listaHistoriales.add(resultado);
         }
         return listaHistoriales;

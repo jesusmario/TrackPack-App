@@ -113,11 +113,6 @@ public class RastrearEnvio extends AppCompatActivity {
                 o.setPaquete(p);
                 o.setNumeroOrden(body.getProperty("NumeroRastreo").toString());
 
-
-                /*Bundle b = new Bundle();
-                b.putSerializable("o", o);
-                EnviosFragment e = new EnviosFragment();
-                e.setArguments(b);*/
                 Intent i = new Intent(RastrearEnvio.this, tbdInfoEnvio.class);
                 i.putExtra("Orden", (Serializable) o);
                 startActivity(i);
