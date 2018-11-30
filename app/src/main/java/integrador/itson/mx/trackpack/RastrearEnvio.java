@@ -75,7 +75,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 SoapObject response = (SoapObject) soapEnvelope.bodyIn;
                 SoapObject body = (SoapObject) response.getProperty(0);
 
-                //Datos destinatario.
+                //Datos del destinatario.
                 SoapObject destinatario = (SoapObject) body.getProperty("Destinatario");
                 Destinatario d = new Destinatario();
                 d.setNombre(destinatario.getProperty("Nombre").toString());
