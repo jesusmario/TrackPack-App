@@ -17,12 +17,20 @@ ImageView deli, estimar;
         deli = (ImageView) findViewById(R.id.botDeli);
         estimar = (ImageView) findViewById(R.id.botEstimar);
 
+        estimar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuPrincipal.this, CostoEnvio.class));
+            }
+        });
+
         deli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(MenuPrincipal.this, RastrearEnvio.class));
             }
         });
+
 
 
     }
