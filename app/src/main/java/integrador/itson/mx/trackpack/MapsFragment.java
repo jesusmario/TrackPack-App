@@ -45,9 +45,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Orden o = (Orden) getArguments().getSerializable("o");
-        String prueba = o.getFecha();
-
         mMap = googleMap;
 
         LatLng sydney = new LatLng(-34, 151);
