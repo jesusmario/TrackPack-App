@@ -93,7 +93,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 {
                     SoapObject historial = (SoapObject) ListaHistorial.getProperty(i);
                     Historial h = new Historial();
-                    h.setFecha(historial.getProperty("Fecha").toString().replace("T", " "));
+                    h.setFecha(historial.getProperty("Fecha").toString());
                     h.setDescripcion(historial.getProperty("Descripcion").toString());
                     h.setCiudad(historial.getProperty("Ciudad").toString());
                     h.setEstado(historial.getProperty("Estado").toString());
@@ -108,8 +108,7 @@ public class RastrearEnvio extends AppCompatActivity {
                 p.setTamanio(paquete.getProperty("Tamanio").toString());
 
                 Orden o = new Orden();
-                String[] fecha = body.getProperty("Fecha").toString().split("T");
-                o.setFecha(fecha[0]);
+                o.setFecha(body.getProperty("Fecha").toString());
                 o.setDestinatario(d);
                 o.setHistoriales(listaHistorial);
                 o.setPaquete(p);
