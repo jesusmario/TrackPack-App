@@ -143,7 +143,11 @@ public class tbdInfoEnvio extends AppCompatActivity {
                     return enviosFragment;
 
                 case 1:
+                    Orden orden = (Orden) getIntent().getExtras().getSerializable("Orden");
                     MapsFragment mapsFragment = new MapsFragment();
+                    Bundle bunde = new Bundle();
+                    bunde.putSerializable("o", orden);
+                    mapsFragment.setArguments(bunde);
                     return mapsFragment;
             }
 

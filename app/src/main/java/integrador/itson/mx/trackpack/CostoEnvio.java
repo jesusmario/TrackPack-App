@@ -1,10 +1,14 @@
 package integrador.itson.mx.trackpack;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -24,170 +29,150 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class CostoEnvio extends FragmentActivity implements OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener,
-        GoogleMap.OnMarkerClickListener,
-        GoogleMap.OnMarkerDragListener, View.OnClickListener, GoogleMap.OnMapLongClickListener {
-
-    private GoogleMap mMap;
-
-    double latitudeStart, longitudStart;
-    double end_lat, end_long;
-    EditText localA, localB;
-    Button btn;
-    MarkerOptions mo, mo2;
+public class CostoEnvio extends AppCompatActivity{
+    Button cotizar;
+    EditText localizacionDesde, localizacionHasta, peso;
+    TextView totaltxt, resultado, cotizacionTotal;
+    double latitudeStart, longitudStart, end_lat, end_long, resultadoTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        setContentView(R.layout.calc_costo_envio);
+        totaltxt = findViewById(R.id.txtTextoCotizacion);
+        resultado = findViewById(R.id.textototal);
+        cotizacionTotal = findViewById(R.id.txtCotizacion);
+        localizacionDesde = findViewById(R.id.locationA);
+        localizacionHasta = findViewById(R.id.locationB);
+        peso = findViewById(R.id.peso);
+        totaltxt.setEnabled(false);
+        resultado.setEnabled(false);
+        cotizacionTotal.setEnabled(false);
+        cotizar = findViewById(R.id.btnCalcular);
 
-        btn = findViewById(R.id.btnCalcular);
-        localA = findViewById(R.id.txtLocationA);
-        localB = findViewById(R.id.txtLocationB);
-        btn.setOnClickListener(this);
 
+        cotizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               servicioWeb _servicioWeb = new servicioWeb();
+                _servicioWeb.execute();
+            }
+        });
     }
 
+    private class servicioWeb  extends AsyncTask<String, String, String> {
+        ProgressDialog p = new ProgressDialog(CostoEnvio.this);
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        @Override
+        protected String doInBackground(String... strings) {
 
-        LatLng b = new LatLng(0, 0);
-        mo = new MarkerOptions();
-        mo.position(b);
-        mo.title("Destination2");
-        mo.draggable(false);
-        mMap.addMarker(mo);
+            publishProgress("Cotizando tu envio");
+            String NAMESPACE = "http://www.itrackpack.com/";
+            String METHOD_NAME = "ObtenerPrecioEnvio";
+            String SOAP_ACTION = "http://www.itrackpack.com/ObtenerPrecioEnvio";
+            String URL = "https://www.itrackpack.com/WSTrackPack.asmx?WSDL";
 
-        LatLng a = new LatLng(0, 0);
-        mo2 = new MarkerOptions();
-        mo2.position(b);
-        mo2.title("Destination1");
-        mo2.draggable(false);
-        mMap.addMarker(mo2);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.textGrid:
-                mMap.clear();
-
-                String a = String.valueOf(localA.getText());
-                String b = String.valueOf(localB.getText());
+            try{
+                String localizacionA = localizacionDesde.getText().toString();
+                String localizacionB =localizacionHasta.getText().toString();
 
                 Location l1 = new Location("");
-                latitudeStart = getLat(a);
+                latitudeStart = getLat(localizacionA);
                 l1.setLatitude(latitudeStart);
-                longitudStart = getLong(a);
+                longitudStart = getLong(localizacionA);
                 l1.setLongitude(longitudStart);
 
                 Location l2 = new Location("");
-                end_lat = getLat(b);
+                end_lat = getLat(localizacionB);
                 l2.setLatitude(end_lat);
-                end_long = getLong(b);
+                end_long = getLong(localizacionB);
                 l2.setLongitude(end_long);
 
+                double distancia = l1.distanceTo(l2);
+                String distanciaTotal =  String.valueOf(distancia/1000);
+                String  pesoTotal = peso.getText().toString();
 
-                LatLng aa = new LatLng(latitudeStart, longitudStart);
-                mo = new MarkerOptions();
-                mo.position(aa);
-                mo.title("Destination A");
-                mo.draggable(false);
-                mMap.addMarker(mo);
 
-                LatLng bb = new LatLng(end_lat, end_long);
-                mo2 = new MarkerOptions();
-                mo2.position(bb);
-                mo2.title("Destination B");
-                mo2.draggable(false);
-                mMap.addMarker(mo2);
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+                request.addProperty("distancia", distanciaTotal);
+                request.addProperty("pesoPaquete", pesoTotal);
+                SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                soapEnvelope.dotNet = true;
+                soapEnvelope.setOutputSoapObject(request);
 
-                float distanceInMeters = l1.distanceTo(l2);
-                Toast.makeText(CostoEnvio.this, "Distancia= " + distanceInMeters, Toast.LENGTH_LONG).show();
+                HttpTransportSE transport = new HttpTransportSE(URL);
+                transport.call(SOAP_ACTION, soapEnvelope);
 
-                break;
+                //Respuesta
+                SoapObject response = (SoapObject) soapEnvelope.bodyIn;
+                String propiedad = response.getProperty(0).toString();
+                resultadoTotal = Math.rint(Double.parseDouble(propiedad)*100)/100;
+            }catch(Exception e){
+
+                return  "error";
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            p.setMessage("Cotizando tu envío");
+            p.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            p.setIndeterminate(false);
+            p.setCancelable(false);
+            p.show();
+        }
+
+        @Override
+        protected void onPostExecute(String aString) {
+            super.onPostExecute(aString);
+            if(p.isShowing())
+            {
+                if(aString == null && resultadoTotal != 0)
+                {
+                    String respuesta = String.valueOf(resultadoTotal);
+                    cotizacionTotal.setText(respuesta);
+                    cotizacionTotal.setEnabled(true);
+                    totaltxt.setEnabled(false);
+                    resultado.setEnabled(false);
+                    p.dismiss();
+                }else
+                {
+                    p.dismiss();
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CostoEnvio.this);
+                    alertDialogBuilder.setTitle("Datos no válidos");
+                    alertDialogBuilder
+                            .setMessage("Rellena todos los campos.")
+                            .setPositiveButton("Aceptar",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                    localizacionDesde.setText("");
+                    localizacionHasta.setText("");
+                    peso.setText("");
+
+
+                }
+
+            }
+
+
         }
     }
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        marker.setDraggable(true);
-        return false;
-    }
-
-    @Override
-    public void onMarkerDragStart(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDrag(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDragEnd(Marker marker) {
-        //asd
-    }
-
-    @Override
-    public void onMapLongClick(LatLng point) {
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 
     public double getLat(String direccion) {
         Geocoder geoCoder = new Geocoder(this);
@@ -218,7 +203,5 @@ public class CostoEnvio extends FragmentActivity implements OnMapReadyCallback,
         } // end catch
         return result;
     }
-
 }
-
 

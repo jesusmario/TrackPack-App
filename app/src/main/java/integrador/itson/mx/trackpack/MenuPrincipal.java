@@ -20,7 +20,8 @@ ImageView deli, estimar;
         estimar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CostoEnvio costoEnvio = new CostoEnvio();
+                Intent o = new Intent(MenuPrincipal.this, CostoEnvio.class);
+                startActivity(o);
 
             }
         });
