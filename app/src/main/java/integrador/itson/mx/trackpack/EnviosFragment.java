@@ -42,8 +42,18 @@ public class EnviosFragment extends Fragment {
         lista = view.findViewById(R.id.listEnvio);
         fecha.setText(o.getFecha());
         numeroRastreo.setText(o.getNumeroOrden());
-        List<String> listaHistoriales = llenarList(o.getHistoriales());
-        ListAdapter _baseAdapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_list_item_1, listaHistoriales);
+        List<Historial> listaHistoriales = o.getHistoriales();
+        List<Historial> listaHistorial = new ArrayList<>();
+        for(int i=0; i<listaHistoriales.size(); i++)
+        {
+            Historial h = new Historial();
+            h.setId(i);
+            h.setDescripcion(listaHistoriales.get(i).getDescripcion());
+            h.setFecha(listaHistoriales.get(i).getFecha());
+            listaHistorial.add(h);
+        }
+
+        Adaptador _baseAdapter = new Adaptador(getContext(), listaHistorial);
         lista.setAdapter(_baseAdapter);
         return view;
 

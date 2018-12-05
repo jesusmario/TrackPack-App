@@ -6,13 +6,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Historial implements Serializable {
+    int id;
     String fecha;
     String descripcion;
     String ciudad;
     String estado;
     String latitud;
     String longitud;
+    String lugar;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getFecha() {
         return fecha;
     }
@@ -59,6 +68,14 @@ public class Historial implements Serializable {
 
     public void setLongitud(String longitud) {
         this.longitud = longitud;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
 }
