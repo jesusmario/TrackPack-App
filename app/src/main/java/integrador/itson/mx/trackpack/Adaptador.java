@@ -41,7 +41,7 @@ public class Adaptador extends BaseAdapter {
         View vista = convertView;
 
         LayoutInflater inflate = LayoutInflater.from(contexto);
-        vista = inflate.inflate(R.layout.fragment_envios, null);
+        vista = inflate.inflate(R.layout.itemlist, null);
 
         TextView titulo = (TextView) vista.findViewById(R.id.titulo);
         TextView descripcion = (TextView) vista.findViewById(R.id.descripcion);

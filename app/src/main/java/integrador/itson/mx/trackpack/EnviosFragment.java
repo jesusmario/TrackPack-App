@@ -40,8 +40,10 @@ public class EnviosFragment extends Fragment {
         fecha=view.findViewById(R.id.fechas);
         numeroRastreo = view.findViewById(R.id.numRastreo);
         lista = view.findViewById(R.id.listEnvio);
-        fecha.setText(o.getFecha());
+        String [] fechaSplit = o.getFecha().split(" ");
+        fecha.setText(fechaSplit[0]);
         numeroRastreo.setText(o.getNumeroOrden());
+
         List<Historial> listaHistoriales = o.getHistoriales();
         List<Historial> listaHistorial = new ArrayList<>();
         for(int i=0; i<listaHistoriales.size(); i++)
@@ -59,18 +61,6 @@ public class EnviosFragment extends Fragment {
 
     }
 
-    public List<String> llenarList(List<Historial>listaHistorial)
-    {
-        List<String> listaHistoriales = new ArrayList<>();
-        for(int i=0; i<listaHistorial.size(); i++)
-        {
-            String resultado = "Fecha: "+listaHistorial.get(i).getFecha()+
-                    "\nLugar: "+ listaHistorial.get(i).getCiudad()+", "+listaHistorial.get(i).getEstado()+
-                    "\nDescripción: "+listaHistorial.get(i).getDescripcion();
-            listaHistoriales.add(resultado);
-        }
-        return listaHistoriales;
-    }
 
 
 }
