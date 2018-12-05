@@ -88,7 +88,9 @@
         android:layout_marginTop="5dp"
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:inputType="number"
+        android:numeric="integer" />
 
     <Button
         android:id="@+id/btnCalcular"

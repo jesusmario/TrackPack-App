@@ -41,6 +41,7 @@ Button buttonob1;
             public void onClick(View v) {
                 Intent skipOnBoarding = new Intent(OnBoarding.this, MenuPrincipal.class);
                 startActivity(skipOnBoarding);
+                finish();
             }
         });
 
@@ -49,6 +50,7 @@ Button buttonob1;
             public void onClick(View v) {
                 Intent buttonobl = new Intent(OnBoarding.this, OnBoarding2.class);
                 startActivity(buttonobl);
+                finish();
             }
         });
 

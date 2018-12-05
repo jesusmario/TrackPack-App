@@ -40,6 +40,7 @@ public class OnBoarding3 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent skipOnBoarding = new Intent(OnBoarding3.this, MenuPrincipal.class);
                 startActivity(skipOnBoarding);
+                finish();
             }
         });
 
@@ -48,6 +49,7 @@ public class OnBoarding3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(OnBoarding3.this, MenuPrincipal.class));
+                finish();
             }
         });
 

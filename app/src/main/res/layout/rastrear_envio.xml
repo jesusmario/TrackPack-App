@@ -13,41 +13,56 @@
         android:background="@color/colorPrimary"
         app:title="@string/titulo_RastrearEnv"
         app:titleTextColor="@color/coloresTitulos"
-        android:elevation="4dp"
+        android:elevation="0dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ImageView
+        android:id="@+id/rastrearEnvioLogo"
+        android:layout_width="228dp"
+        android:layout_height="217dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/rastreotp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtNumGuia"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="43dp"
         android:hint="Ingresa número de guía"
-        />
+        android:inputType="number"
+        android:numeric="integer" />
 
     <Button
         android:id="@+id/btnRastrear"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_below="@+id/txtNumGuia"
+        android:layout_alignStart="@+id/txtNumGuia"
+        android:layout_marginTop="50dp"
         android:background="@drawable/edit_circle"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/txtNumGuia"
-        android:layout_marginTop="12dp"
         android:text="Rastrear envio"
-        android:textColor="@android:color/white"
-        />
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnRegresar"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_below="@+id/txtNumGuia"
+        android:layout_alignStart="@+id/txtNumGuia"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="116dp"
+
         android:background="@drawable/edit_circle"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/txtNumGuia"
-        android:layout_marginTop="100dp"
-        android:textColor="@android:color/white"
-        android:text="@string/boton_regresar" />
+        android:text="@string/boton_regresar"
+        android:textColor="@android:color/white" />
 
 
 
