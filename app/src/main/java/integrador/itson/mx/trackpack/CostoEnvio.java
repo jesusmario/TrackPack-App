@@ -139,7 +139,7 @@ public class CostoEnvio extends AppCompatActivity{
             {
                 if(aString == null && resultadoTotal != 0)
                 {
-                    String respuesta = String.valueOf(resultadoTotal);
+                    String respuesta = String.valueOf("$"+resultadoTotal);
                     cotizacionTotal.setText(respuesta);
                     cotizacionTotal.setEnabled(true);
                     totaltxt.setEnabled(false);
