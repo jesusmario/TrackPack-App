@@ -61,10 +61,10 @@ public class RastrearEnvio extends AppCompatActivity {
         protected String doInBackground(String... strings) {
 
             publishProgress("Rastreando tu envío");
-            String NAMESPACE = "http://www.itrackpack.com/";
+            String NAMESPACE = "http://www.trackpack-ws.com/";
             String METHOD_NAME = "ObtenerHistorialOrden";
-            String SOAP_ACTION = "http://www.itrackpack.com/ObtenerHistorialOrden";
-            String URL = "https://www.itrackpack.com/WSTrackPack.asmx?WSDL";
+            String SOAP_ACTION = "http://www.trackpack-ws.com/ObtenerHistorialOrden";
+            String URL = "https://www.trackpack-ws.com/WSTrackPack.asmx?WSDL";
 
             try{
                 // Peticion o llamada al servicio web
@@ -102,8 +102,6 @@ public class RastrearEnvio extends AppCompatActivity {
                         h.setDescripcion(historial.getProperty("Descripcion").toString());
                         h.setCiudad(historial.getProperty("Ciudad").toString());
                         h.setEstado(historial.getProperty("Estado").toString());
-                        h.setLatitud(historial.getProperty("Latitud").toString());
-                        h.setLongitud(historial.getProperty("Longitud").toString());
                         listaHistorial.add(h);
                     }
 
