@@ -75,11 +75,10 @@ public class CostoEnvio extends AppCompatActivity{
         @Override
         protected String doInBackground(String... strings) {
 
-            publishProgress("Cotizando tu envio");
-            String NAMESPACE = "http://www.itrackpack.com/";
+            String NAMESPACE = "http://www.trackpack-ws.com/";
             String METHOD_NAME = "ObtenerPrecioEnvio";
-            String SOAP_ACTION = "http://www.itrackpack.com/ObtenerPrecioEnvio";
-            String URL = "https://www.itrackpack.com/WSTrackPack.asmx?WSDL";
+            String SOAP_ACTION = "http://www.trackpack-ws.com/ObtenerPrecioEnvio";
+            String URL = "https://www.trackpack-ws.com/WSTrackPack.asmx?WSDL";
 
             try{
                 String localizacionA = localizacionDesde.getText().toString();
