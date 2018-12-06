@@ -14,6 +14,8 @@ public class IntroLogo extends AppCompatActivity {
     Animation frombottom, fromtop;
     ImageView ballon;
 
+    /*Animación de la intro al ejecutar la aplicación*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

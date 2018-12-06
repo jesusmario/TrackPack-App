@@ -72,6 +72,8 @@ public class CostoEnvio extends AppCompatActivity{
     private class servicioWeb  extends AsyncTask<String, String, String> {
         ProgressDialog p = new ProgressDialog(CostoEnvio.this);
 
+
+        //Actividad ejecutandose en segundo plano para mandar a llamar el web service con SOAP.
         @Override
         protected String doInBackground(String... strings) {
 
@@ -122,6 +124,7 @@ public class CostoEnvio extends AppCompatActivity{
             return null;
         }
 
+        //Pantalla de espera.
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -132,6 +135,9 @@ public class CostoEnvio extends AppCompatActivity{
             p.show();
         }
 
+        /*
+        * Ejecución y validación.
+         */
         @Override
         protected void onPostExecute(String aString) {
             super.onPostExecute(aString);
@@ -173,6 +179,7 @@ public class CostoEnvio extends AppCompatActivity{
     }
 
 
+    //Obtención de Latitud y Longitud.
     public double getLat(String direccion) {
         Geocoder geoCoder = new Geocoder(this);
         double result = 0 ;

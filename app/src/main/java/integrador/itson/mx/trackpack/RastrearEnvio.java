@@ -34,7 +34,7 @@ public class RastrearEnvio extends AppCompatActivity {
         btnRastrear = (Button) findViewById(R.id.btnRastrear);
         txtnumeroRastreo = (EditText) findViewById(R.id.txtNumGuia);
 
-
+    //Llamada a la acción del servicio web.
         btnRastrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +54,8 @@ public class RastrearEnvio extends AppCompatActivity {
 
 
     }
+
+    //Llamada al servicio weh con SOAP.
     private class servicioWeb  extends AsyncTask<String, String, String> {
         ProgressDialog p = new ProgressDialog(RastrearEnvio.this);
 
@@ -127,6 +129,7 @@ public class RastrearEnvio extends AppCompatActivity {
             return null;
         }
 
+        //Indicación de la pantalla de espera al consultar el envío.
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

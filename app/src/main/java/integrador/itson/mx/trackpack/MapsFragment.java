@@ -48,6 +48,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         return v;
     }
 
+    /*Código de ejecución del mapa utilizando Google Maps*/
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -67,6 +68,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+
+    /*Obtencion de la latitud*/
     public double getLat(String direccion) {
         Geocoder geoCoder = new Geocoder(getActivity());
         double result = 0 ;
@@ -81,6 +84,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         } // end catch
         return result;
     } // end convertAddress
+
+    /*Obtención de la Longitud*/
 
     public double getLong(String direccion) {
         Geocoder geoCoder = new Geocoder(getActivity());

@@ -32,6 +32,9 @@ public class EnviosFragment extends Fragment {
         }
     }
 
+    /*
+    Obtención del historial que ha recorrido el paquete.
+    */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

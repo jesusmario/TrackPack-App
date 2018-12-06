@@ -17,6 +17,7 @@ ImageView deli, estimar;
         deli = (ImageView) findViewById(R.id.botDeli);
         estimar = (ImageView) findViewById(R.id.botEstimar);
 
+        /*En este método se manda a llamar la ejecución a otra activity*/
         estimar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +27,7 @@ ImageView deli, estimar;
             }
         });
 
+        /*En este método se manda a llamar la ejecución a otra activity*/
         deli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
